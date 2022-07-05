@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Dashboard</title>
+
+	<!--JQUERY-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+	<!-- Los iconos tipo Solid de Fontawesome-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+	<script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+	<!-- Nuestro css-->
+	<!-- <link rel="stylesheet" type="text/css" href="static/css/index.css" th:href="@{/css/index.css}"> -->
+
+</head>
+
+<body>
+
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="/html/dashboard">Inicio</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item active">
+					<a class="nav-link" th:href="@{'/html/proyectos/' + ${session.usuario.id}}">Proyectos<span
+							class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" th:href="@{'/html/articulos/' + ${session.usuario.id}}">Articulos</a>
+				</li>
+				<li class="nav-item">
+					<form th:action="@{/logout}" method="post">
+						<button class="btn btn-primary" type="submit">Salir< </form>
+				</li>
+
+			</ul>
+		</div>
+	</nav>
+	<div class="container">
+		<br>
+		<h1>Hora de Crear un Nuevo Proyecto <span th:text="${session.usuario.nombres}"></h1>
+		<br><br><br>
+
+		<div>
+
+			<form th:action="@{/html/proyectos/nuevo}" th:object="${proyectoForm}"  method="POST">
+				<div class="form-group" >
+					<label for="exampleInputEmail1">Descripcion</label>
+					<textarea name="descripcion"  class="form-control"></textarea>
+					
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1">Estado</label>
+					<select name="estado" id="estado">
+						<option value="none" selected disabled hidden>Select an Option</option>
+						<option value="Activo">Activo</option>
+						<option value="Pendiente">Pendiente </option>
+						<option value="Terminado">Terminado</option>
+						<option value="Proximo">Proximo</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label  for="exampleInputEmail1">Fecha Inicio</label>
+					<input name="fechaIncio" type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1">Nombre</label>
+					<input name="nombre" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+					<input name="usuario" type="hidden" th:value="${session.usuario.id}">
+				</div>
+
+	 
+				<button type="submit" class="btn btn-primary">Crear</button>
+			</form>
+
+
+		</div>
+
+
+
+		</div>
+		</div>
+
+</body>
+
+</html>

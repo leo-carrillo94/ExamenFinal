@@ -1,0 +1,92 @@
+<!<!DOCTYPE html>
+	<html lang="es">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- CSS only -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+			integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+		<!-- JavaScript Bundle with Popper -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+			crossorigin="anonymous"></script>
+
+		<title>Proyectos</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/dashboard.css">
+		 <link rel="stylesheet" href="../../static/css/dashboard.css" th:href="@{/css/dashboard.css}">
+
+
+	</head>
+
+	<body>
+
+		<div class="container-fluid">
+			<div class="row">
+			
+			
+
+
+				<main class="main col">
+					<div class="row justify-content-center align-content-center text-center">
+						<div class="columna col-lg-12">
+
+							RELACION DE PROYECTOS
+
+							<div class="d-flex">
+								<div class="col-sm-12"> 
+								<br>
+								<div>
+			<a class="btn btn-info" >Agregar</a>
+			</div><br>
+									<table class="table table-hover">
+										<thead>
+											<tr>
+												<th>TITULO</th>
+												<th>AÑO</th>
+												<th>ACCIONES</th>
+											</tr>
+										</thead>
+										<tbody>
+
+											<tr th:each="proyecto: ${proyectos}">
+												<td th:text="${proyecto.titulo}" />
+													<td th:text="${proyecto.fechainicio}" />
+												<td>
+													<a class="btn btn-info"
+														th:href="@{'/proyectos/visualizar/' + ${proyecto.id}}">Ver</a>
+													<a class="btn btn-warning"
+														th:href="@{'/proyectos/editar/' + ${proyecto.id}}">Editar</a>
+													<a class="btn btn-success"
+														th:href="@{'/html/pregunta/' + ${proyecto.id}}">Preguntas</a>
+													<a class="btn btn-danger"
+														th:href="@{'/proyectos/eliminar/' + ${proyecto.id}}+'/'+${session.usuario.id}">Eliminar</a>
+												</td>
+											</tr>
+										
+										</tbody>
+
+									</table>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+					<hr>
+
+				</main>
+
+			</div>
+		</div>
+
+
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>
+		<script src="https://kit.fontawesome.com/646c794df3.js"></script>
+	</body>
+
+	</html>
