@@ -17,8 +17,8 @@ public class Pregunta {
 	@ManyToOne
 	private Proyecto proyecto;
 
-	@Column(columnDefinition = "TEXT")
-	private String pregunta;
+	@Column(name="pregunta",columnDefinition = "TEXT")
+	private String preguntaa;
 
 	@Column(columnDefinition = "TEXT")
 	private String cadena;
@@ -30,11 +30,11 @@ public class Pregunta {
 		super();
 	}
 
-	public Pregunta(int id, Proyecto proyecto, String pregunta, String cadena, String notas) {
+	public Pregunta(int id, Proyecto proyecto, String preguntaa, String cadena, String notas) {
 		super();
 		this.id = id;
 		this.proyecto = proyecto;
-		this.pregunta = pregunta;
+		this.preguntaa = preguntaa;
 		this.cadena = cadena;
 		this.notas = notas;
 	}
@@ -55,12 +55,12 @@ public class Pregunta {
 		this.proyecto = proyecto;
 	}
 
-	public String getPregunta() {
-		return pregunta;
+	public String getPreguntaa() {
+		return preguntaa;
 	}
 
-	public void setPregunta(String pregunta) {
-		this.pregunta = pregunta;
+	public void setPreguntaa(String preguntaa) {
+		this.preguntaa = preguntaa;
 	}
 
 	public String getCadena() {

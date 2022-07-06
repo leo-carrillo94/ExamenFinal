@@ -22,6 +22,7 @@ import com.proarti.demo.servicios.UsuarioServicio;
 @Controller
 public class UsuarioController {
 	
+	
 	@Autowired
 	UsuarioServicio usuarioSer;
 	

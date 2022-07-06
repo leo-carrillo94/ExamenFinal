@@ -54,5 +54,9 @@ public class UsuarioServicio {
 		return usuarioR.findById(id).get().getNombre();
 		
 	}
+	
+	public Usuario obtenerUsuario(int id) {
+		return usuarioR.findById(id).get();
+	}
 
 }

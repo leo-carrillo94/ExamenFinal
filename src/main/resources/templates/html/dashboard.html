@@ -33,8 +33,8 @@
                         <a href="#" class="px-3 text-light perfil dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle user"></i></a>
 
                         <div class="dropdown-menu" aria-labelledby="navbar-dropdown">
-                            <a class="dropdown-item menuperfil cerrar" href="#"><i class="fas fa-sign-out-alt m-1"></i>Salir
-                            </a>
+
+                            
                         </div>
                     </li>
                 </ul>
@@ -58,12 +58,10 @@
                           <br><hr>
                            <div class="col-12">
                             <div class="wrap">  
-        <ul class="tabs">
-            <li><a href="#tab2"><span class="fas fa-clipboard"></span><span class="tab-text">Agregar</span></a></li>
-            <li><a href="#tab3"><span class="fas fa-clipboard"></span><span class="tab-text">Eliminar</span></a></li>
-            <li><a href="#tab4"><span class="fas fa-clipboard"></span><span class="tab-text">Buscar</span></a></li>
-        </ul>
-
+ 
+		<form th:action="@{/logout}" method="post">
+			<button type="submit">Salir< </form>
+			
         </div> </div>
                     </div>
 
